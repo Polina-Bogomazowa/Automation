@@ -6,6 +6,7 @@ import net.elmosoft.splendid.driver.page.Page;
 import net.elmosoft.splendid.service.runner.SuiteListener;
 import net.elmosoft.splendid.test.BaseSplendidTest;
 import net.splendid.elmosoft.pages.LogInPage;
+import net.splendid.elmosoft.pages.ProductPage;
 import org.testng.Assert;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Listeners;
@@ -26,8 +27,8 @@ public class CheckProductTest extends BaseSplendidTest {
         Boolean resultLogIn = logiiin.doLogin("standard_user", "secret_sauce").isHomePageOpened();
         Assert.assertTrue(resultLogIn, "Home page is not opened");
 
-        /*logiiin.isbackToProductsBtnExist
-        Boolean resultcheck = logiiin.isbackToProductsBtnExist();
+        /*ProductPage productpage = new ProductPage();
+        Boolean resultcheck = productpage.isbackToProductsBtnExist();
         Assert.assertTrue(resultcheck, "product page is not opened");*/
     }
 
