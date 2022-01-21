@@ -3,19 +3,15 @@ package net.splendid.elmosoft.pages;
 import net.elmosoft.splendid.driver.annotation.FindBy;
 import net.elmosoft.splendid.driver.element.BrowserElement;
 import net.elmosoft.splendid.driver.page.Page;
-import net.elmosoft.splendid.driver.page.PageFactory;
 
-public class ProductPage extends Page {
+public class CheckOutCompletePage extends Page {
 
-    @FindBy(id ="back-to-products")
-    private BrowserElement backToProductsBtn;
+    @FindBy(xpath = "//img[@src='/static/media/pony-express.46394a5d.png']")
+    private BrowserElement finishPicture;
 
-
-    public Boolean isbackToProductsBtnExist() {
-        return backToProductsBtn.isExists();
+    public Boolean isCheckOutCompletePageOpened() {
+        return finishPicture.isExists();
     }
-
-
     @Override
     public void checkPage() {
 

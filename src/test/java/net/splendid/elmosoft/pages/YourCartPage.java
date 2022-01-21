@@ -14,9 +14,11 @@ public class YourCartPage extends Page {
     private BrowserElement removeCartBtn;
 
 
-
     @FindBy(xpath = "//div[@class='cart_item_label']")
     private BrowserElement cartItemLabel;
+
+    @FindBy(id="checkout")
+    private BrowserElement checkOutBtn;
 
     public YourCartPage clickByRemoveBtn(){
         removeCartBtn.click();
@@ -26,9 +28,15 @@ public class YourCartPage extends Page {
     public Boolean isProductChoosen(){
         return product.isExists();
     }
-public Boolean isCartItemLabelExist(){
+
+    public Boolean isCartItemLabelExist(){
         return cartItemLabel.isExists();
 }
+
+    public YourCartPage clickByCheckOut() {
+        checkOutBtn.click();
+        return PageFactory.initElements(driver, YourCartPage.class);
+    }
     @Override
     public void checkPage() {
 

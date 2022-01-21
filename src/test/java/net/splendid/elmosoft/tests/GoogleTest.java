@@ -28,4 +28,5 @@ public class GoogleTest extends BaseSplendidTest {
 		googleSteps.doSearch("Elmosoft minsk");
 		Assert.assertTrue(googleSteps.getNumberOfPages() > 0, "There are no pages");
 	}
+
 }
