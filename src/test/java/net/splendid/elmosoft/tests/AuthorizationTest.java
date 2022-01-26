@@ -15,6 +15,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.uncommons.reportng.HTMLReporter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Listeners({SuiteListener.class, HTMLReporter.class})
@@ -46,8 +47,15 @@ public class AuthorizationTest extends BaseSplendidTest {
         logiiin.doLogin("problem_user", "secret_sauce");
         HomePage homePage = new HomePage();
         homePage.isHomePageOpened();
-        List<WebElement> samePictures = driver.findElements(By.xpath("//img[@src='/static/media/sl-404.168b1cce.jpg']"));
-        Assert.assertEquals(samePictures, homePage.ifSamePictExist((By.xpath("//img[@src='/static/media/sl-404.168b1cce.jpg']"))));
+
+        ArrayList <String> expectedResult = new ArrayList <String>();
+        for(int i=0; i<6;i++){
+            expectedResult.add("https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg");
+        }
+
+        List<String> actualResults = homePage.getListOfPathImgs();
+        //List<WebElement> samePictures = driver.findElements(By.xpath("//img[@src='/static/media/sl-404.168b1cce.jpg']"));
+        Assert.assertEquals(actualResults, expectedResult, "Imgs are not the same");
 
     }
 
